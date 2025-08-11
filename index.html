@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Account Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fab fa-github"></i>
+                <span>GitHub Visualizer</span>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Enter GitHub username..." id="usernameInput">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <p>Fetching GitHub data...</p>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="profile-section" id="profileSection">
+            <div class="profile-header">
+                <img src="" alt="Profile Avatar" class="avatar" id="avatar">
+                <div class="profile-info">
+                    <h1 class="profile-name" id="profileName"></h1>
+                    <h2 class="profile-username" id="profileUsername"></h2>
+                    <p class="profile-bio" id="profileBio"></p>
+                    <div class="profile-meta">
+                        <span class="profile-meta-item" id="profileLocation">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span></span>
+                        </span>
+                        <span class="profile-meta-item" id="profileWebsite">
+                            <i class="fas fa-link"></i>
+                            <a href="" target="_blank" id="websiteLink"></a>
+                        </span>
+                        <span class="profile-meta-item" id="profileTwitter">
+                            <i class="fab fa-twitter"></i>
+                            <a href="" target="_blank" id="twitterLink"></a>
+                        </span>
+                        <span class="profile-meta-item" id="profileJoined">
+                            <i class="far fa-calendar-alt"></i>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="reposCount">0</div>
+                            <div class="stat-label">Repositories</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="followersCount">0</div>
+                            <div class="stat-label">Followers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="followingCount">0</div>
+                            <div class="stat-label">Following</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="gistsCount">0</div>
+                            <div class="stat-label">Gists</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title">Activity Overview</h3>
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h4 class="chart-title">Top Languages</h4>
+                    <div class="chart-container">
+                        <canvas id="languagesChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h4 class="chart-title">Repository Distribution</h4>
+                    <div class="chart-container">
+                        <canvas id="repoStatsChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h4 class="chart-title">Commit Activity</h4>
+                    <div class="chart-container">
+                        <canvas id="commitActivityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-container">
+                <h3 class="section-title">Recent Activity</h3>
+                <div class="activity-grid" id="activityGrid">
+                    <!-- Activity cards will be inserted here -->
+                </div>
+            </div>
+
+            <div class="repos-container">
+                <h3 class="section-title">Top Repositories</h3>
+                <div class="repo-list" id="repoList">
+                    <!-- Repository cards will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>GitHub Visualizer &copy; 2023 | Uses the GitHub API</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
